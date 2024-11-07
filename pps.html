@@ -9,7 +9,7 @@
     <script src="script.js" defer></script>
     <script src="login,signup.js"></script>
     <script src="downloads.js"></script>
-    <title>Document</title>
+    <title>PPS Study Material</title>
     <style>
         * {
             padding: 0;
@@ -407,7 +407,7 @@
             </h2>
             <div class="mainbar">
                 <ul>
-                    <li><a href="home.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Home&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+                    <li><a href="index.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Home&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
                     <li><a href="tt.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TimeTable&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
                     <li><a href="examtt.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exam TT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
                     <li><a href="attendance.html">&nbsp;&nbsp;&nbsp;Attendance Calc&nbsp;&nbsp;&nbsp;</a></li>
@@ -444,7 +444,7 @@
         </nav>
         <div class="papermarket" id="target-section">
             <div class="headersearch">
-                <h1>Environmental Science</h1>
+                <h1>Programming For Problem Solving</h1>
                 <p>Find and download past exam papers with ease!</p>
             </div>
         
@@ -455,15 +455,14 @@
         
             <div class="filters">
                 <select id="subject" aria-label="Select Subject">
-                    <option value="EVS">Environmental Science</option>
+                    <option value="PPS">PPS</option>
                 </select>
                 <select id="type" aria-label="Select Exam Type">
-                    <option value="PPT">Lecture PPTS</option>
+                    <option value="LAB EXPT">LAB Manual Experiments</option>
                 </select>
             </div>
         
             <div class="container" id="papers-grid">
-                <!-- Paper Cards will be dynamically inserted here -->
             </div>
         </div>
         <div id="chatbotbtn" class="chatbotbutton">
@@ -478,18 +477,23 @@
             });
         });
         const papers = [
-            { title: "Unit 1 Introduct to Environmental Science", subject: "EVS", type: "PPT", image: "media/evsfiles/unit1evs.jpg", pdf: "media/evsfiles/01 Introduction (1).pdf" },
-            { title: "Unit 2 Natural Resources", subject: "EVS", type: "PPT", image: "media/evsfiles/unit2evs.jpg", pdf: "media/evsfiles/02 Natural Resources (1).pdf" },
-            { title: "Unit 3 Environmental Pollution", subject: "EVS", type: "PPT", image: "media/evsfiles/unit3evs.jpg", pdf: "media/evsfiles/03 Env Pollution (1).pdf" },
-            { title: "Unit 4 Bio Diversity", subject: "EVS", type: "PPT", image: "media/evsfiles/unit4evs.jpg", pdf: "media/evsfiles/BIO DIVERSITY unit 4.pdf" },
-            { title: "Unit 5 Climate Change", subject: "EVS", type: "PPT", image: "media/evsfiles/unit5evs.jpg", pdf: "media/evsfiles/Climate change unit 6.pdf" },    
+            { title: "PPS Lab Experiment 1", subject: "PPS", type: "LAB EXPT", image: "media/ppsfiles/unit1pps.jpg", pdf: "media/ppsfiles/1_Experiment_PPS 2024-2025.pdf" },
+            { title: "PPS Lab Experiment 2", subject: "PPS", type: "LAB EXPT", image: "media/ppsfiles/unit2pps.jpg", pdf: "media/ppsfiles/2B_Experiment_PPS 2024-2025.pdf" },
+            { title: "PPS Lab Experiment 3", subject: "PPS", type: "LAB EXPT", image: "media/ppsfiles/unit3pps.jpg", pdf: "media/ppsfiles/3_Experiment_PPS_2024-2025.pdf" },
+            { title: "PPS Lab Experiment 4", subject: "PPS", type: "LAB EXPT", image: "media/ppsfiles/unit4pps.jpg", pdf: "media/ppsfiles/Exp-4 B.pdf" },
+            { title: "PPS Lab Experiment 5", subject: "PPS", type: "LAB EXPT", image: "media/ppsfiles/unit5pps.jpg", pdf: "media/ppsfiles/Experiment-5_PPS.pdf" },
+            { title: "PPS Lab Experiment 6", subject: "PPS", type: "LAB EXPT", image: "media/ppsfiles/unit6pps.jpg", pdf: "media/ppsfiles/Experiment-6_PPS.pdf" },
+            { title: "PPS Lab Experiment 7", subject: "PPS", type: "LAB EXPT", image: "media/ppsfiles/unit7pps.jpg", pdf: "media/ppsfiles/Exp-7 B.pdf" },
+            { title: "PPS Lab Experiment 8", subject: "PPS", type: "LAB EXPT", image: "media/ppsfiles/unit8pps.jpg", pdf: "media/ppsfiles/Exp-8 A.pdf" },
+            { title: "PPS Lab Experiment 9", subject: "PPS", type: "LAB EXPT", image: "media/ppsfiles/unit9pps.jpg", pdf: "media/ppsfiles/Exp-9 A.pdf" },
+            { title: "PPS Lab Experiment 10", subject: "PPS", type: "LAB EXPT", image: "media/ppsfiles/unit10pps.jpg", pdf: "media/ppsfiles/Exp-10 A.pdf" },
         ];
 
         function displayPapers(filteredPapers) {
             const papersGrid = document.getElementById("papers-grid");
-            papersGrid.innerHTML = ""; // Clear previous results
+            papersGrid.innerHTML = ""; 
 
-            // Ensure at most 6 items are displayed with placeholders if needed
+            
             const papersToDisplay = filteredPapers.slice(0, 10);
 
             papersToDisplay.forEach(paper => {

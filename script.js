@@ -291,7 +291,7 @@ window.onload = function() {
 
     // jQuery document ready function to handle the check button click
     $('#check-btn').click(function(){
-        window.location.href = 'home.html#target-section'; // Redirect to target section
+        window.location.href = 'index.html#target-section'; // Redirect to target section
         closePopup(); // Close the popup
     });
 };

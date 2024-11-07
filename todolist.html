@@ -9,7 +9,7 @@
     <script src="script.js" defer></script>
     <script src="login,signup.js"></script>
     <script src="downloads.js"></script>
-    <title>Document</title>
+    <title>To-do_List</title>
     <style>
         * {
             padding: 0;
@@ -436,6 +436,82 @@
             background-color: rgb(59, 25, 194);
             color: white;
         }
+        #popup1 {
+            display: none; 
+            position: fixed; 
+            top: 50%; 
+            left: 50%; 
+            transform: translate(-50%, -50%); 
+            background: white; 
+            padding: 20px; 
+            border-radius: 10px; 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+            z-index: 100;
+            width: 700px; 
+            text-align: center; 
+        }
+        #popup1 h2 {
+            margin-bottom: 15px;
+        }
+        #popup1 p {
+            margin: 10px 0; 
+        }
+        #popup1 button {
+            margin-top: 10px; 
+            background: rgb(23, 190, 23);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #popup1 button:hover {
+            background: darkgreen;
+        }
+        .popup-container {
+            display: none;
+            position: fixed; /* Stay in place */
+            left: 0; /* Align to the left */
+            top: 25%; /* Adjust vertical position */
+            left: 1%;
+            width: 280px;
+            border-radius: 25px;
+            height: auto; /* Set width of the popup */
+            padding: 20px; /* Add padding */
+            background-color: rgba(255, 255, 255, 0.8); /* White background */
+            border: 1px solid #ccc; /* Light border */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+            z-index: 1000; /* Ensure it appears above other content */
+        }
+        .popup-container h2{
+            margin-top: -10px;
+        }
+
+        .popup-content {
+            text-align: center; /* Center the text */
+        }
+
+        .popup-image {
+            border: 2px solid black;
+            border-radius:15px ;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            width: 100%; /* Responsive image */
+            height: auto; /* Maintain aspect ratio */
+        }
+        .popup-container p{
+            margin-top: 5px;
+        }
+
+        #close-btn {
+            background-color: rgb(59, 25, 194);
+            padding-top: 8px;
+            z-index: 1000;
+            padding-bottom: 8px;
+            padding-left: 20px;
+            padding-right: 20px;
+            margin-top: 10px;
+        }
     </style>
 
 </head>
@@ -463,7 +539,7 @@
             </h2>
             <div class="mainbar">
                 <ul>
-                    <li><a href="home.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Home&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+                    <li><a href="index.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Home&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
                     <li><a href="tt.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TimeTable&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
                     <li><a href="examtt.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exam TT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
                     <li><a href="attendance.html">&nbsp;&nbsp;&nbsp;Attendance Calc&nbsp;&nbsp;&nbsp;</a></li>
@@ -498,6 +574,7 @@
             </div>
             <div class="overlay" id="overlay"></div>
         </nav>
+        
         <div class="todolistmain">
             <div class="container">
                 <h1>My To-Do List</h1>
@@ -534,7 +611,21 @@
             <span id="button" class="material-symbols-outlined">chat</span>
         </div>
     </div>
-
+    <div class="popup-container" id="popup">
+        <div class="popup-content">
+            <h2>Check Out Exam Paper Market</h2>
+            <img src="/media/calcfiles/m1calc.jpg" alt="Exam Paper" class="popup-image">
+            <p>Calculus Mid-Term 1 Paper</p>
+            <p style="color: gray;">Subject : Calculus</p>
+            <p style="color: gray;">Paper : Mid-Term 1</p>
+            <button id="close-btn">Close</button>
+            <button id="check-btn" style="background-color: rgb(59, 25, 194);padding-top: 8px;
+            z-index: 1000;
+            padding-bottom: 8px;
+            padding-left: 20px;
+            padding-right: 20px;">Check Out</button>
+        </div>
+    </div>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             loadTasks();
@@ -655,6 +746,67 @@
                 $('#chat').toggle();
             });
         });
+        document.addEventListener("DOMContentLoaded", function () {
+            const username = localStorage.getItem("loggedInUser"); // Retrieve the logged-in username
+            const usernameDisplay = document.querySelector(".username");
+            const editIcon = document.getElementById("edit-icon");
+
+            if (username && usernameDisplay) {
+                usernameDisplay.textContent = username; // Display the saved username
+
+                // Load and display the saved profile image for the specific user
+                const savedImage = localStorage.getItem(`${username}_profileImage`);
+                const profileImage = document.getElementById("profile-image");
+                if (savedImage) {
+                    profileImage.src = savedImage; // Load saved image if it exists
+                }
+            }
+
+            const imageUpload = document.getElementById("image-upload");
+            const profileImage = document.getElementById("profile-image");
+
+            document.getElementById("edit-icon").addEventListener("click", function() {
+                imageUpload.click(); // Trigger file input on icon click
+            });
+
+            imageUpload.addEventListener("change", function() {
+                const file = this.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(event) {
+                        // Show confirmation popup
+                        const confirmSave = confirm("Are you sure you want to save this image?");
+                        if (confirmSave) {
+                            profileImage.src = event.target.result; // Set the image source
+                            // Save image to localStorage with the username as part of the key
+                            localStorage.setItem(`${username}_profileImage`, event.target.result); 
+                        }
+                    }
+                    reader.readAsDataURL(file); // Read the file as a data URL
+                }
+            });
+        });
+        window.onload = function() {
+            function ShowPopup() {
+                document.getElementById('popup1').style.display = 'block'; // Show the popup
+            }
+
+            function ClosePopup() {
+                document.getElementById('popup1').style.display = 'none'; // Hide the popup
+            }
+
+            // Show the popup after 20 seconds
+            setTimeout(ShowPopup, 20000); 
+
+            // Close button event listener
+            document.getElementById('close-btn').onclick = ClosePopup;
+
+            // jQuery document ready function to handle the check button click
+            $('#check-btn').click(function(){
+                window.location.href = 'index.html#target-section'; // Redirect to target section
+                ClosePopup(); // Close the popup
+            });
+        };
     </script>
     
     

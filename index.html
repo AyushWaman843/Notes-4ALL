@@ -9,7 +9,7 @@
     <script src="script.js" defer></script>
     <script src="login,signup.js"></script>
     <script src="downloads.js"></script>
-    <title>Calculus Study Material</title>
+    <title>Notes 4ALL</title>
     <style>
         * {
             padding: 0;
@@ -17,15 +17,27 @@
             box-sizing: border-box;
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0; /* Reset padding to avoid layout shifts */
+        }
         .hero {
-            height: 100vh;
+            margin: 0;
+            height: 100%;
             width: 100%;
             background-size: cover;
             background-position: center;
             position: relative;
         }
         nav {
+            position: fixed;
             display: flex;
+            width: 100%;
+            height: 70px;
             align-items: center;
             justify-content: space-between;
             padding-top: 10px;
@@ -33,15 +45,15 @@
             padding-left: 2%;
             padding-right: 2%;
             background-color: rgba(0, 0, 0, 0.5);
-            margin-bottom: 15px;
+            z-index: 100;
         }
         span {
             color: violet;
         }
         video {
-            position: fixed;
+            position: absolute;
             width: 100%;
-            height: 100%;
+            height: 100;
             object-fit: cover;
             top: 0;
             left: 0;
@@ -215,13 +227,181 @@
             font-size: 20px; /* Adjust size as needed */
             vertical-align: middle; /* Align with text */
         }
-        .papermarket{
-            
-            object-fit: cover;
+        button {
             background-color: transparent;
-            margin-top: -15px;
+            border: 2px solid white;
+            padding: 10px 0px;
+            border-radius: 15px;
+            color: white;
+            cursor: pointer;
+        }
+    
+        .accdetails {
+            position: absolute;
+            right: 2.1%;
+            height: 30px;
+            text-align: center;
+            width: 200px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            padding-top: 5px;
+            color: black;
+            margin-top: 0.5%;
+            display: none;
+        }
+        h1 {
+            margin-top: 9%;
+            margin-left: 50px;
+            margin-bottom: 20px;
+            font-size: 60px;
+            color: white;
+        }
+
+        .dot-container {
+            display: inline-block;
+            margin-left: 10px; /* Add spacing between text and dots */
+        }
+
+        .dots {
+            color: white;
+            display: inline-block;
+            width: 1em; /* Increased width */
+            text-align: left;
+            position: relative;
+        }
+
+        .dots::after {
+            content: '';
+            animation: dots 1.5s steps(3, end) infinite; /* Adjust duration */
+        }
+
+        @keyframes dots {
+            0% {
+                content: '';
+            }
+            33% {
+                content: '.';
+            }
+            66% {
+                content: '..';
+            }
+            100% {
+                content: '...';
+            }
+        }
+
+        .heading {
+            width: 100%;
+            text-align: center;
+            background: transparent;
+        }
+        .buttons button{
+            margin-right: 20px;
+            width: 150px;
+            height: 60px;
+            font-size: x-large;
+            letter-spacing: 2px;
+            color: white;
+            background-color: transparent;
+            transition: transform 0.3s ease, background-color 0.3s ease, border 0.3s ease, color 0.3s ease;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+        .buttons button:hover{
+            transform: scale(1.1);
+            color: black;
+            background-color: white;
+            border: 1px solid white;
+        }
+        .timetableimg{
+            justify-content: center;
+            display: flex;
+            min-height: 450px;
+        }
+        .sliders{
+            background-color: white;
+        }
+        .timetableimg .sliders{
+            border-radius: 15px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            height: 390px;
+            width: 800px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .timetableimg .sliders img {
+            height: 100%;
+            width: 100%;
+            border-radius: 15px;
+        }
+        .timetableimg .sliders:hover{
+            transform: scale(1.05);
+        }
+        .sliders img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out; /* Adjust duration as needed */
+        }
+
+        .sliders img.active {
+            opacity: 1;
+        }
+
+        .timetableimg button{
+            transition: transform 0.3s ease,background-color 0.3s ease , color 0.3s ease;
+        }
+        .timetableimg button:hover{
+            transform:scale(1.05);
+            background-color: white;
+            color: black;
+        }
+        .cursor {
+            display: inline-block;
+            width: 15px;
+            height: 60px;
+            background-color: white;
+            animation: blink 0.8s infinite;
+        }
+        .chatbotbutton{
+            position: fixed;
+            top: 92%;
+            right: 5px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: white;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .chatbotbutton:hover{
+            transform: scale(1.1);
+        }
+        .chatbotbutton span{
+            position: absolute;
+            top: 20%;
+            right: 7px;
+            font-size: 35px;
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        .papermarket{
+            object-fit: cover;
+            background-image: url(/media/bgformarket.jpg);
+            margin-top:-10px;
             margin-bottom: -30px;
-            min-height:660px ;
             background-color: wheat;
         }
         .headersearch {
@@ -350,39 +530,61 @@
         .paper-card .button:hover {
             background-color:rgb(59, 25, 194);
         }
-        button {
-            background-color: transparent;
-            border: 2px solid white;
-            padding: 10px 0px;
-            border-radius: 15px;
-            color: white;
-            cursor: pointer;
+
+        /* Footer Styling */
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: rgb(59, 25, 194);
+            color: #fff;
+            font-size: 0.9rem;
+            margin-top: 2rem;
         }
-        .chatbotbutton{
-            position: fixed;
-            top: 92%;
-            right: 5px;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: white;
-            cursor: pointer;
-            transition: transform 0.3s ease;
+        .popup-container {
+            display: none;
+             /* Hidden by default */
+            position: fixed; /* Stay in place */
+            left: 1%; /* Align to the left */
+            top: 25%; /* Adjust vertical position */
+            width: 280px;
+            border-radius: 25px;
+            height: 390px; /* Set width of the popup */
+            padding: 20px; /* Add padding */
+            background-color: rgba(255, 255, 255, 0.8); /* White background */
+            border: 1px solid #ccc; /* Light border */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+            z-index: 1000; /* Ensure it appears above other content */
         }
-        .chatbotbutton:hover{
-            transform: scale(1.1);
+
+        .popup-content {
+            text-align: center; /* Center the text */
         }
-        .chatbotbutton span{
-            position: absolute;
-            top: 20%;
-            right: 7px;
-            font-size: 35px;
+
+        .popup-image {
+            border: 2px solid black;
+            border-radius:15px ;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            width: 100%; /* Responsive image */
+            height: auto; /* Maintain aspect ratio */
+        }
+        .popup-container p{
+            margin-top: 5px;
+        }
+
+        #close-btn {
+            background-color: rgb(59, 25, 194);
+            padding-top: 8px;
+            z-index: 1000;
+            padding-bottom: 8px;
+            padding-left: 20px;
+            padding-right: 20px;
+            margin-top: 10px; /* Space above the button */
         }
     </style>
 
 </head>
 <body>
-    <video src="media/homepagevidbg.mp4" autoplay loop muted></video>
     <div id="chat" class="chatbot">
         <header>
             <h2>Chatbot</h2>
@@ -398,10 +600,12 @@
             <span class="material-symbols-outlined">send</span>
         </div>
     </div>
+
     <div class="hero">
+        <video src="media/homepagevidbg.mp4" autoplay loop muted></video>
         <nav>
             <h2 class="logo" style="color: lightblue; font-size: 30px; font-family:Verdana, Geneva, Tahoma, sans-serif; letter-spacing: 2px;">
-                Notes <span style="font-family:Verdana, Geneva, Tahoma, sans-serif;">4ALL</span>
+                Notes <span style="margin-right: 10px;font-family:Verdana, Geneva, Tahoma, sans-serif;">4ALL</span>
             </h2>
             <div class="mainbar">
                 <ul>
@@ -440,9 +644,34 @@
             </div>
             <div class="overlay" id="overlay"></div>
         </nav>
+        <div class="heading">
+            <h1 class="animated-title">
+                <span id="dynamic-text" style="color: white; font-size: 70px; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; letter-spacing: 8px;">
+                    Select Your Subject</span><span class="dot-container">
+                <span class="cursor" style="font-weight: 900;">&nbsp;</span>
+            </h1>
+        </div>
+        <div class="buttons" style="text-align: center;">
+            <button class="subject-button" onclick="openPage('calc.html')">CALC</button>
+            <button class="subject-button" onclick="openPage('evs.html')">EVS</button>
+            <button class="subject-button" onclick="openPage('pps.html')">PPS</button>
+            <button class="subject-button" onclick="openPage('bds.html')">BDS</button>
+            <button class="subject-button" onclick="openPage('fwd.html')">FWD</button>
+            <button class="subject-button" onclick="openPage('mae.html')">MAE</button>
+            <button class="subject-button" onclick="openPage('eob.html')">EOB</button>
+        </div>        
+        <div class="timetableimg">
+            <button id="moveahead" style="position: relative; margin-right: 1.5%; margin-top: 13%; height: 30px; width: 40px; padding-top: 5px; padding-bottom: 30px; font-size: 20px;">&lt;</button>
+            
+            <div class="sliders">
+                <a href="tt.html"><img id="slider-img" src="/media/tt.jpg" alt="Slider Image"></a>
+            </div>
+            
+            <button id="moveback" style="position: relative; margin-left: 1.5%; margin-top: 13%; height: 30px; width: 40px; padding-top: 5px; padding-bottom: 30px; font-size: 20px;">&gt;</button>
+        </div>
         <div class="papermarket" id="target-section">
             <div class="headersearch">
-                <h1>Calculus</h1>
+                <h1>Exam Papers Marketplace</h1>
                 <p>Find and download past exam papers with ease!</p>
             </div>
         
@@ -453,13 +682,17 @@
         
             <div class="filters">
                 <select id="subject" aria-label="Select Subject">
-                    <option value="CAL">CALCULUS</option>
+                    <option value="">Select Subject</option>
+                    <option value="PPS">PPS</option>
+                    <option value="BDS">BDS</option>
+                    <option value="CAL">CAL</option>
+                    <option value="FWD">FWD</option>
+                    <option value="EOB">EOB</option>
+                    <option value="EVS">EVS</option>
+                    <option value="MAE">MAE</option>
                 </select>
                 <select id="type" aria-label="Select Exam Type">
-                    <option value="">Select Paper Type</option>
-                    <option value="ClassWork">ClassWork Problems</option>
-                    <option value="Tutorial">Tutorial Problems</option>
-                    <option value="Assignment">Assignment</option>
+                    <option value="">Select Exam Type</option>
                     <option value="Mid-Term 1">Mid-Term 1</option>
                     <option value="Mid-Term 2">Mid-Term 2</option>
                     <option value="Term-End Paper">Term-End Paper</option>
@@ -470,34 +703,81 @@
                 <!-- Paper Cards will be dynamically inserted here -->
             </div>
         </div>
+        <div class="popup-container" id="popup">
+            <div class="popup-content">
+                <h2>Check Out Exam Paper Market</h2>
+                <img src="/media/calcfiles/m1calc.jpg" alt="" class="popup-image">
+                <p>Calculus Mid-Term 1 Paper</p>
+                <p style="color: gray;">Subject : Calculus</p>
+                <p style="color: gray;">Paper : Mid-Term 1</p>
+                <button id="close-btn">Close</button>
+                <button id="check-btn" style="background-color: rgb(59, 25, 194);padding-top: 8px;
+                z-index: 1000;
+                padding-bottom: 8px;
+                padding-left: 20px;
+                padding-right: 20px;">Check Out</button>
+            </div>
+        </div>
         <div id="chatbotbtn" class="chatbotbutton">
             <span id="button" class="material-symbols-outlined">chat</span>
         </div>
+        <footer>
+            <p>&copy; Made By Ayush Waman and Khushi Maru</p>
+        </footer>
     </div>
-
     <script>
-        $(document).ready(function(){
-            $('#chatbotbtn').click(function(){
-                $('#chat').toggle();
-            });
+        
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.sidebar'); // Use querySelector for a class
+            sidebar.classList.toggle('open');
+        }
+
+        document.addEventListener('click', (event) => {
+            const sidebar = document.querySelector('.sidebar'); // Use querySelector for a class
+            const navMenu = document.querySelector('.navmenu');
+            
+            if (!sidebar.contains(event.target) && !navMenu.contains(event.target)) {
+                sidebar.classList.remove('open');
+            }
         });
+
+
+        function showPopup() {
+            document.getElementById('popup').style.display = 'block';
+            setTimeout(showPopup, 100000); // Show the popup
+        }
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none'; // Hide the popup
+        }
+        setTimeout(showPopup, 100000); 
+
+        document.getElementById('close-btn').onclick = closePopup;
+        $(document).ready(function(){
+            $('#check-btn').click(function(){
+                window.location.href = 'index.html#target-section';
+                $(this).fadeIn();
+            })
+        })
         const papers = [
-            { title: "Unit 1 Differential Calculus", subject: "CAL", type: "ClassWork", image: "media/calcfiles/unit1cwimage.jpg", pdf: "media/calcfiles/unit1_cw.pdf" },
-            { title: "Unit 1 Differential Calculus", subject: "CAL", type: "Tutorial", image: "media/calcfiles/unit1tutimg.jpg", pdf: "media/calcfiles/Unit 1_Revised Tutorial problems.pdf" },
-            { title: "Unit 2 Partial Differencaition", subject: "CAL", type: "ClassWork", image: "media/calcfiles/unit2cwimage.jpg", pdf: "media/calcfiles/unit2_sessionswise problems.pdf" },
-            { title: "Unit 1 Partial Differencaition", subject: "CAL", type: "Tutorial", image: "media/calcfiles/unit2tutimage.jpg", pdf: "media/calcfiles/unit2_tutorial problems.pdf" },
-            { title: "Unit 3 Integral Calculus", subject: "CAL", type: "ClassWork", image: "media/calcfiles/unit3cwimage.jpg", pdf: "media/calcfiles/Unit 3 Sessionwise Problems.pdf" },
-            { title: "Unit 3 Integral Calculus", subject: "CAL", type: "Tutorial", image: "media/calcfiles/unit3tutimage.jpg", pdf: "media/calcfiles/Unit 3 Tutorial Problems.pdf" },
-            { title: "Unit 4 Multiple Integrals", subject: "CAL", type: "ClassWork", image: "media/calcfiles/unit4cwimage.jpg", pdf: "media/calcfiles/Unit 4 Sessionwise Problems.pdf" },
-            { title: "Unit 1 Multiple Integrals", subject: "CAL", type: "Tutorial", image: "media/calcfiles/unit4tutimage.jpg", pdf: "media/calcfiles/Unit 4 Tutorial Problems.pdf" },
-            { title: "Unit 5 Vector Calculus", subject: "CAL", type: "ClassWork", image: "media/calcfiles/unit5cwimage.jpg", pdf: "media/calcfiles/Unit5 sessionwise problems.pdf" },
-            { title: "Unit 5 Vector Calculus", subject: "CAL", type: "Tutorial", image: "media/calcfiles/unit5tutimage1.jpg", pdf: "media/calcfiles/Unit5 tutorial problems_part 1.pdf" },
-            { title: "Unit 5 Vector Calculus", subject: "CAL", type: "Tutorial", image: "media/calcfiles/unit5tutimage2.jpg", pdf: "media/calcfiles/Unit5 tutorial problems_part 2.pdf" },
-            { title: "CAL M1 test QP-Set A and B", subject: "CAL", type: "Mid-Term 1", image: "media/calcfiles/m1calcimage.jpg", pdf: "media/calcfiles/M1 test QP- Set A and B.pdf" },
-            { title: "CAL M1 test QP-Set C and D", subject: "CAL", type: "Mid-Term 1", image: "media/calcfiles/m1calcimage.jpg", pdf: "media/calcfiles/M1 test QP- Set C and D (1) .pdf" },
-            { title: "CAL M1 test QP- Set E and F", subject: "CAL", type: "Mid-Term 1", image: "media/calcfiles/m1calcimage.jpg", pdf: "media/calcfiles/M1 test QP- Set E and F (1).pdf" },
-            { title: "CAL M2 test QP-Set A and B", subject: "CAL", type: "Mid-Term 2", image: "media/calcfiles/m1calcimage.jpg", pdf: "media/calcfiles/M2 solutions Set A and B (1).pdf" },
-            { title: "CAL Assignment 1", subject: "CAL", type: "Assignment", image: "media/calcfiles/calassimage.jpg", pdf: "media/calcfiles/Calculus_Assignment 1- 2024 (1).pdf" },
+            { title: "PPS Mid-Term 1 Paper", subject: "PPS", type: "Mid-Term 1", image: "media/calcfiles/m1calc.jpg", pdf: "media/calcfiles/unit1_cw.pdf" },
+            { title: "PPS Mid-Term 2 Paper", subject: "PPS", type: "Mid-Term 2", image: "media/calcfiles/m1calc.jpg", pdf: "media/calcfiles/unit1_cw.pdf" },
+            { title: "PPS Term-End Paper", subject: "PPS", type: "Term-End Paper", image: "media/calcfiles/m1calc.jpg", pdf: "media/calcfiles/unit1_cw.pdf" },
+            { title: "BDS Mid-Term 1 Paper", subject: "BDS", type: "Mid-Term 1", image: "media/calcfiles/m1calc1.jpg", pdf: "media/calcfiles/unit1_cw.pdf" },
+            { title: "BDS Mid-Term 2 Paper", subject: "BDS", type: "Mid-Term 2", image: "media/calcfiles/m1calc1.jpg", pdf: "media/calcfiles/unit1_cw.pdf" },
+            { title: "BDS Term-End Paper", subject: "BDS", type: "Term-End Paper", image: "media/calcfiles/m1calc1.jpg", pdf: "media/calcfiles/unit1_cw.pdf" },
+            { title: "CAL Mid-Term 1 Paper", subject: "CAL", type: "Mid-Term 1", image: "media/calcfiles/m1calc1.jpg", pdf: "media/calcfiles/unit1_cw.pdf" },
+            { title: "CAL Mid-Term 2 Paper", subject: "CAL", type: "Mid-Term 2", image: "media/calcfiles/m1calc1.jpg", pdf: "media/calcfiles/unit1_cw.pdf" },
+            { title: "CAL Term-End Paper", subject: "CAL", type: "Term-End Paper", image: "media/calcfiles/m1calc1.jpg", pdf: "media/calcfiles/unit1_cw.pdf" },
+            { title: "FWD Mid-Term 1 Paper", subject: "FWD", type: "Mid-Term 1", image: "media/calcfiles/m1calc1.jpg", pdf: "media/calcfiles/unit1_cw.pdf" },
+            { title: "FWD Mid-Term 2 Paper", subject: "FWD", type: "Mid-Term 2", image: "media/calcfiles/m1calc1.jpg", pdf: "media/calcfiles/unit1_cw.pdf" },
+            { title: "FWD Term-End Paper", subject: "FWD", type: "Term-End Paper", image: "media/calcfiles/m1calc1.jpg", pdf: "media/calcfiles/unit1_cw.pdf" },
+            { title: "EOB Mid-Term 2 Paper", subject: "EOB", type: "Mid-Term 1", image: "media/calcfiles/m1calc1.jpg", pdf: "media/calcfiles/unit1_cw.pdf" },
+            { title: "EOB Mid-Term 2 Paper", subject: "EOB", type: "Mid-Term 2", image: "media/calcfiles/m1calc1.jpg", pdf: "media/calcfiles/unit1_cw.pdf" },
+            { title: "EOB Term-End Paper", subject: "EOB", type: "Term-End Paper", image: "media/calcfiles/m1calc1.jpg", pdf: "media/calcfiles/unit1_cw.pdf" },
+            { title: "EVS Mid-Term 1 Paper", subject: "EVS", type: "Mid-Term 1", image: "media/calcfiles/m1calc1.jpg", pdf: "media/calcfiles/unit1_cw.pdf" },
+            { title: "EVS Mid-Term 2 Paper", subject: "EVS", type: "Mid-Term 2", image: "media/calcfiles/m1calc1.jpg", pdf: "media/calcfiles/unit1_cw.pdf" },
+            { title: "EVS Term-End Paper", subject: "EVS", type: "Term-End Paper", image: "media/calcfiles/m1calc1.jpg", pdf: "media/calcfiles/unit1_cw.pdf" },
+            { title: "MAE Mid-Term 1 Paper", subject: "MAE", type: "Mid-Term 1", image: "media/calcfiles/m1calc1.jpg", pdf: "media/calcfiles/unit1_cw.pdf" },
         ];
 
         function displayPapers(filteredPapers) {
@@ -541,7 +821,7 @@
         function downloadFile(fileUrl) {
             const link = document.createElement('a');
             link.href = fileUrl;
-            link.download = fileUrl.split('/').pop(); // This will ensure the correct filename is used
+            link.download = fileUrl.split('/').pop();
             link.click();
         }
 
@@ -549,9 +829,81 @@
         document.getElementById("subject").addEventListener("change", applyFilters);
         document.getElementById("type").addEventListener("change", applyFilters);
 
-        // Initial display of all papers
         displayPapers(papers);
 
+        $(document).ready(function(){
+            $('#chatbotbtn').click(function(){
+                $('#chat').toggle();
+            });
+        });
+        const images = ["/media/tt.jpg", "/media/examtt.jpeg", "/media/calendar.jpg"];
+        const links = ["tt.html", "examtt.html", "calendar.html"];
+        let currentIndex = 0;
+        const sliderImg = document.getElementById("slider-img");
+        const sliderLink = document.querySelector(".sliders a"); 
+
+        sliderImg.src = images[currentIndex];
+        sliderImg.classList.add('active');
+
+        function updateImage() {
+            sliderImg.classList.remove('active'); 
+            setTimeout(() => {
+                sliderImg.src = images[currentIndex];
+                sliderLink.href = links[currentIndex];
+                sliderImg.classList.add('active'); 
+            }, 400);
+        }
+
+        document.getElementById("moveback").addEventListener("click", function() {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateImage();
+        });
+
+        document.getElementById("moveahead").addEventListener("click", function() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length; 
+            updateImage();
+        });
+
+        const textArray = ["Select Your Subject", "Ace Your Exams !", "Choose a Topic", "Start Learning"];
+        let textIndex = 0;
+        let charIndex = 0;
+        let currentText = "";
+        let isDeleting = false;
+        const typingSpeed = 100; 
+        const backspaceSpeed = 100;
+        const delayBetweenTexts = 1000; 
+        const pauseafterdelete=1000;
+    
+        function typeText() {
+            const dynamicTextElement = document.getElementById("dynamic-text");
+    
+            if (isDeleting) {
+                currentText = textArray[textIndex].substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                currentText = textArray[textIndex].substring(0, charIndex + 1);
+                charIndex++;
+            }
+    
+            dynamicTextElement.innerHTML = currentText;
+    
+            if (!isDeleting && charIndex === textArray[textIndex].length) {
+                isDeleting = true;
+                setTimeout(typeText, delayBetweenTexts); 
+            } 
+            else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % textArray.length; 
+                setTimeout(typeText, pauseafterdelete); 
+            } 
+            else {
+                const speed = isDeleting ? backspaceSpeed : typingSpeed;
+                setTimeout(typeText, speed); 
+            }
+        }
+        setTimeout(typeText, typingSpeed); 
+
+        
 
         document.addEventListener("DOMContentLoaded", function () {
             const username = localStorage.getItem("loggedInUser"); // Retrieve the logged-in username

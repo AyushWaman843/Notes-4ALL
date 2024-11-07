@@ -9,7 +9,7 @@
     <script src="script.js" defer></script>
     <script src="login,signup.js"></script>
     <script src="downloads.js"></script>
-    <title>Document</title>
+    <title>FWD Study Material</title>
     <style>
         * {
             padding: 0;
@@ -221,7 +221,7 @@
             background-color: transparent;
             margin-top: -15px;
             margin-bottom: -30px;
-            min-height: 660px;
+            min-height:660px ;
             background-color: wheat;
         }
         .headersearch {
@@ -319,8 +319,7 @@
 
         .paper-card img {
             width: 100%;
-            min-height: 120px;
-            max-height: auto    ;
+            height: auto;
             border-radius: 5px;
             margin-bottom: 0.75rem;
         }
@@ -406,7 +405,7 @@
             </h2>
             <div class="mainbar">
                 <ul>
-                    <li><a href="home.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Home&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+                    <li><a href="index.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Home&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
                     <li><a href="tt.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TimeTable&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
                     <li><a href="examtt.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exam TT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
                     <li><a href="attendance.html">&nbsp;&nbsp;&nbsp;Attendance Calc&nbsp;&nbsp;&nbsp;</a></li>
@@ -443,7 +442,7 @@
         </nav>
         <div class="papermarket" id="target-section">
             <div class="headersearch">
-                <h1>Environmental Science</h1>
+                <h1>Fundamentals Of Website Development</h1>
                 <p>Find and download past exam papers with ease!</p>
             </div>
         
@@ -457,9 +456,7 @@
                     <option value="FWD">FWD</option>
                 </select>
                 <select id="type" aria-label="Select Exam Type">
-                    <option value="">Select Option</option>
-                    <option value="Lab Expt">Lab Manual Experiments</option>
-                    <option value="PPT">Lecture PPTS</option>
+                    <option value="LAB EXPT">Lab Manual Experiments</option>
                 </select>
             </div>
         
@@ -479,11 +476,18 @@
             });
         });
         const papers = [
-            { title: "Unit 1 Introduct to Environmental Science", subject: "EVS", type: "PPT", image: "media/evsfiles/unit1evs.jpg", pdf: "media/evsfiles/01 Introduction (1).pdf" },
-            { title: "Unit 2 Natural Resources", subject: "EVS", type: "PPT", image: "media/evsfiles/unit2evs.jpg", pdf: "media/evsfiles/02 Natural Resources (1).pdf" },
-            { title: "Unit 3 Environmental Pollution", subject: "EVS", type: "PPT", image: "media/evsfiles/unit3evs.jpg", pdf: "media/evsfiles/03 Env Pollution (1).pdf" },
-            { title: "Unit 4 Bio Diversity", subject: "EVS", type: "PPT", image: "media/evsfiles/unit4evs.jpg", pdf: "media/evsfiles/BIO DIVERSITY unit 4.pdf" },
-            { title: "Unit 5 Climate Change", subject: "EVS", type: "PPT", image: "media/evsfiles/unit5evs.jpg", pdf: "media/evsfiles/Climate change unit 6.pdf" },    
+            { title: "FWD Experiment 1 - Study Of Website", subject: "FWD", type: "LAB EXPT", image: "media/fwdfiles/unit1fwd.jpg", pdf: "media/fwdfiles/Exp 1 - Study of Website.pdf" },
+            { title: "FWD Experiment 2 - Basic HTML Tags", subject: "FWD", type: "LAB EXPT", image: "media/fwdfiles/unit2fwd.jpg", pdf: "media/fwdfiles/Exp 2 - Basic HTML Tags.pdf" },
+            { title: "FWD Experiment 3 - Time Table in HTML", subject: "FWD", type: "LAB EXPT", image: "media/fwdfiles/unit3fwd.jpg", pdf: "media/fwdfiles/Exp 3 - Time Table in HTML.pdf" },
+            { title: "FWD Experiment 4 - Forms in HTML", subject: "FWD", type: "LAB EXPT", image: "media/fwdfiles/unit4fwd.jpg", pdf: "media/fwdfiles/Exp 4 - Forms in HTML (1).pdf" },
+            { title: "FWD Experiment 5 - Inline,Internal CSS", subject: "FWD", type: "LAB EXPT", image: "media/fwdfiles/unit5fwd.jpg", pdf: "media/fwdfiles/Exp 5 - Inline _ Internal CSS.pdf" },
+            { title: "FWD Experiment 6 - External CSS", subject: "FWD", type: "LAB EXPT", image: "media/fwdfiles/unit6fwd.jpg", pdf: "media/fwdfiles/Exp 6 - External CSS.pdf" },
+            { title: "FWD Experiment 7 - Validation Using JavaScript", subject: "FWD", type: "LAB EXPT", image: "media/fwdfiles/unit7fwd.jpg", pdf: "media/fwdfiles/Exp 7 - Validation Using JavaScript.pdf" },
+            { title: "FWD Experiment 8 - JQuery", subject: "FWD", type: "LAB EXPT", image: "media/fwdfiles/unit8fwd.jpg", pdf: "media/fwdfiles/Exp 8 - JQuery (2).pdf" },
+            { title: "FWD Experiment 9 - Bootstrap", subject: "FWD", type: "LAB EXPT", image: "media/fwdfiles/unit9fwd.jpg", pdf: "media/fwdfiles/Exp 9 - Bootstrap (1).pdf" },
+            { title: "FWD Experiment 10 - CMS", subject: "FWD", type: "LAB EXPT", image: "media/fwdfiles/unit10fwd.jpg", pdf: "media/fwdfiles/Exp 10 - CMS (1).pdf" },
+            { title: "FWD Experiment 11 - PHP", subject: "FWD", type: "LAB EXPT", image: "media/fwdfiles/unit11fwd.jpg", pdf: "media/fwdfiles/Exp 11 - PHP-1 (2).pdf" },
+     
         ];
 
         function displayPapers(filteredPapers) {
@@ -579,8 +583,9 @@
                 }
             });
         });
-
     </script>
     
 </body>
 </html>
+
+   
